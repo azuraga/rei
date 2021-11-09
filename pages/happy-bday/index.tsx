@@ -4,6 +4,7 @@ import {Container, Fade, Typography} from "@mui/material";
 import styles from "../../styles/Home.module.scss";
 import NextButton from "../../components/Button/NextButton";
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import BackgroundParallaxLayer from "../../components/MainElements/BackgroundParallaxLayer";
 
 const Message = () => (
         <Typography variant="body1" align="center">
@@ -35,14 +36,8 @@ const Message = () => (
 const Home: NextPage = () => {
     return (
         <div>
-            <Head>
-                <title>Tadano Rei Birthday Project</title>
-                <meta name="description" content="Happy birthday!" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
             <Parallax pages={1.2}>
-                <ParallaxLayer speed={0.1} factor={3} className={styles.background}/>
+                <BackgroundParallaxLayer/>
 
                 <ParallaxLayer offset={0.05} speed={0.7}>
                     <Fade in={true} timeout={3000}>
@@ -63,6 +58,8 @@ const Home: NextPage = () => {
                 <ParallaxLayer offset={0.75} speed={0.7} className={styles.main}>
                     <NextButton href="/messages"/>
                 </ParallaxLayer>
+
+
             </Parallax>
         </div>
     )

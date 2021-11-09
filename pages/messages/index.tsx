@@ -5,6 +5,9 @@ import MessageCard from "../../components/MessageCard/MessageCard";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
 import styles from "../../styles/Home.module.scss";
+import {Parallax, ParallaxLayer} from "@react-spring/parallax";
+import BackgroundParallaxLayer from "../../components/MainElements/BackgroundParallaxLayer";
+import {Slide} from "@mui/material";
 
 const MessagesPage: NextPage = () => {
     const messages = [<MessageCard author="The mouse of the evening watches" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>,
@@ -19,23 +22,23 @@ const MessagesPage: NextPage = () => {
     <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>]
 
     return (
-        <div className={styles.container}>
-            <Head>
-                <title>Tadano Rei Birthday Project</title>
-                <meta name="description" content="Happy birthday!" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+        <Parallax pages={4}>
+            <ParallaxLayer speed={-0.1} factor={200} className={styles.background}/>
 
-            <div>
+            <ParallaxLayer offset={0.05} speed={0.3}>
                 <img src="MessagePageHeader.svg" alt={"皆のメッセージ"}/>
-            </div>
-
-            <main className={styles.main}>
+            </ParallaxLayer>
+            <ParallaxLayer offset={0.1} speed={0.2} className={styles.main}>
                 <MessageBoard messages={messages}/>
+            </ParallaxLayer>
+
+            <ParallaxLayer speed={0.3} offset={0.5} className={styles.main}>
                 <NextButton href={"/"}/>
-            </main>
-            <Footer/>
-        </div>
+            </ParallaxLayer>
+            <ParallaxLayer offset={3.5} speed={0.2}>
+                <Footer/>
+            </ParallaxLayer>
+        </Parallax>
 
     )
 }
