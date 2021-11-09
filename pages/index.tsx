@@ -15,11 +15,10 @@ const Home: NextPage = () => {
             </Head>
 
             <main className={styles.main}>
-                <NextButton href="/message"/>
+                <NextButton href="/happy-bday"/>
             </main>
         </div>
     )
-
 }
 
 export default Home
