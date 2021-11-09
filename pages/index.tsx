@@ -7,17 +7,17 @@ import NextButton from "../components/Button/NextButton";
 
 const Home: NextPage = () => {
     return (
-        <main className={styles.main}>
-            <div className={styles.container}>
-                <Head>
-                    <title>Tadano Rei Birthday Project</title>
-                    <meta name="description" content="Happy birthday!" />
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
+        <div className={styles.container}>
+            <Head>
+                <title>Tadano Rei Birthday Project</title>
+                <meta name="description" content="Happy birthday!" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
+            <main className={styles.main}>
                 <NextButton href="/message"/>
-            </div>
-        </main>
+            </main>
+        </div>
     )
 
 }
