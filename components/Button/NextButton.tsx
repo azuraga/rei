@@ -1,5 +1,5 @@
 import styles from "./Button.module.scss"
-import {Fab, Slide} from "@mui/material";
+import {easing, Fab, Slide} from "@mui/material";
 import {useState} from "react";
 import {useRouter} from "next/router";
 
@@ -20,6 +20,7 @@ export default function NextButton({href}: NextButtonProps) {
                   in={!clicked}
                   timeout={1000}
                   onExited={goIfClicked}
+                  easing={{ enter: easing.easeInOut, exit: easing.easeInOut}}
         >
             <Fab className={styles.button}
                  onClick={() => setClicked(true)}>

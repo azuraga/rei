@@ -29,9 +29,10 @@ const MessagesPage: NextPage = () => {
             <div>
                 <img src="MessagePageHeader.svg" alt={"皆のメッセージ"}/>
             </div>
+
             <main className={styles.main}>
                 <MessageBoard messages={messages}/>
-                <NextButton/>
+                <NextButton href={"/"}/>
             </main>
             <Footer/>
         </div>
