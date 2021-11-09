@@ -1,0 +1,34 @@
+@use "sass:math";
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import 'styles/variables';
+
+$card-width: 425px;
+
+.card {
+  border-radius: 31px;
+  max-width: $card-width;
+
+  .content {
+    font-family: Jua;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: -0.017em;
+    color: $white;
+    margin: 1em;
+  }
+
+  .author {
+    max-width: math.div($card-width, 2);
+    font-family: Jua;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 30px;
+    color: $white;
+    text-align: right;
+    margin: 1em 2.5em 0 auto;
+  }
+}
