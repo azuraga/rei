@@ -1,15 +1,29 @@
 import styles from "./Button.module.scss"
-import {Button, Fab, Slide} from "@mui/material";
+import {Fab, Slide} from "@mui/material";
 import {useState} from "react";
+import {useRouter} from "next/router";
 
-export default function NextButton() {
-    const [checked, setChecked] = useState(true);
+interface NextButtonProps {
+    href: string
+}
 
-    return <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
-        <Fab className={styles.button}
-             onClick={(e) => setChecked(false)}>
-            <img className={styles.image} alt="next"/>
-        </Fab>
-    </Slide>
+export default function NextButton({href}: NextButtonProps) {
+    const [clicked, setClicked] = useState(false);
+    const router = useRouter();
 
+    const goIfClicked = () => {
+        if (clicked)
+            router.push(href);
+    }
+
+    return <Slide direction="up"
+                  in={!clicked}
+                  timeout={1000}
+                  onExited={goIfClicked}
+        >
+            <Fab className={styles.button}
+                 onClick={() => setClicked(true)}>
+                <img className={styles.image} alt="next"/>
+            </Fab>
+        </Slide>
 }

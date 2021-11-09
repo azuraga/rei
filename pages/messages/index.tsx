@@ -7,6 +7,17 @@ import Footer from "../../components/MainElements/Footer";
 import styles from "../../styles/Home.module.scss";
 
 const MessagesPage: NextPage = () => {
+    const messages = [<MessageCard author="The mouse of the evening watches" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
+    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>]
+
     return (
         <div className={styles.container}>
             <Head>
@@ -19,23 +30,12 @@ const MessagesPage: NextPage = () => {
                 <img src="MessagePageHeader.svg" alt={"皆のメッセージ"}/>
             </div>
             <main className={styles.main}>
-                <MessageBoard>
-                    <MessageCard key={1} author="The mouse of the evening watches" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-                    <MessageCard key={2} author="mouse" content="お誕生日おめでとう！！！"/>
-
-                </MessageBoard>
+                <MessageBoard messages={messages}/>
                 <NextButton/>
             </main>
             <Footer/>
         </div>
+
     )
 }
 
