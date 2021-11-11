@@ -20,10 +20,9 @@ def csv_to_json(filename):
                     'JA': row[3]
                 }
             })
-
     with open('{}.json'.format(filename), 'w') as file:
-        json.dump({'content': result}, file, indent=4)
+        json.dump({'content': result}, file, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':
-    csv_to_json("messages")
+    csv_to_json('rei_messages')
