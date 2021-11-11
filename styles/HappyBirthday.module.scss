@@ -1,0 +1,18 @@
+@import 'variables';
+
+.logo {
+  width: 15rem;
+  height: auto;
+}
+
+.message {
+
+}
+
+.background {
+  content: url($background);
+}
+
+.buttonArea {
+  padding-bottom: 5vh;
+}

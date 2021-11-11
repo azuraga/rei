@@ -1,5 +1,7 @@
 
 // set of colours a message card can be
+import {getRndInteger} from "../../util/util";
+
 const colours =[
         "#B0006A",
         "#FF62BF",
@@ -8,9 +10,7 @@ const colours =[
         "#FB7099"
 ];
 
-function getRndInteger(min: number, max: number) {
-        return Math.floor(Math.random() * (max - min) ) + min;
-}
+
 export function getRandomCardColour() {
         return colours[getRndInteger(0, colours.length)]
 }

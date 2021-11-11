@@ -19,7 +19,7 @@ export default function MessageBoard({messages}: MessageBoardProps) {
                 }}
                 timeout={(index + 1) * 900}
             >
-                <div style={{background: 'black'}}>{message}</div>
+                <div>{message}</div>
             </Grow>
         })}
     </Masonry>
