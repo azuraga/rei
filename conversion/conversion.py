@@ -14,7 +14,7 @@ def csv_to_json(filename):
             if ix == 0:  # skip header
                 continue
             result.append({
-                'author': row[0],
+                'author': row[1],
                 'message': {
                     'EN': row[2],
                     'JA': row[3]
@@ -22,4 +22,8 @@ def csv_to_json(filename):
             })
 
     with open('{}.json'.format(filename), 'w') as file:
-        file.write(json.dumps({'data': result}, indent=4))
+        json.dump({'content': result}, file, indent=4)
+
+
+if __name__ == '__main__':
+    csv_to_json("messages")
