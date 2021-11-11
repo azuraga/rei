@@ -8,7 +8,6 @@ export interface MessageBoardProps {
 }
 
 export default function MessageBoard({messages}: MessageBoardProps) {
-
     return <Masonry columns={3} spacing={3} className={styles.board}>
         {messages.map((message, index) =>{
             return <Grow
@@ -17,7 +16,7 @@ export default function MessageBoard({messages}: MessageBoardProps) {
                 style={{
                     transformOrigin: '0 0 0'
                 }}
-                timeout={(index + 1) * 900}
+                timeout={(/*index*/ + 1) * 900} // todo: find better way to sequential transition the messages
             >
                 <div>{message}</div>
             </Grow>
