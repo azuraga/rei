@@ -7,21 +7,13 @@ import styles from "../../styles/Home.module.scss";
 import {Background, Parallax} from "react-parallax";
 import React from "react";
 import {Grid} from "@mui/material";
+import message_json from './rei_messages.json'
 
 const MessagesPage: NextPage = () => {
-    const messages = [<MessageCard author="The mouse of the evening watches" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>]
+    const messages = message_json.content.map((message) => <MessageCard author={message.author} message={message.message}/>)
 
     return (
-        <Parallax strength={200}>
+        <Parallax strength={400}>
             <Background className={styles.background}/>
             <Grid container
                   spacing={5}
