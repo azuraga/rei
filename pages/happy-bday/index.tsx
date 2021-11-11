@@ -34,6 +34,7 @@ const Message = () => (
 
 
 const Home: NextPage = () => {
+    //todo: the unpredictable overlapping on mobile might be fixed by using margins instead of offset
     return (
         <div>
             <Parallax pages={1.2}>
