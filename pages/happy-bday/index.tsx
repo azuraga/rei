@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import {Container, Fade, Typography} from "@mui/material";
-import styles from "../../styles/Home.module.scss";
+import {Container, Fade, Grid, Typography} from "@mui/material";
+import styles from "../../styles/HappyBirthday.module.scss";
 import NextButton from "../../components/Button/NextButton";
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import BackgroundParallaxLayer from "../../components/MainElements/BackgroundParallaxLayer";
+import {useEffect, useState} from "react";
+import React from 'react';
+import {Background, Parallax} from "react-parallax";
 
 const Message = () => (
         <Typography variant="body1" align="center">
@@ -33,36 +33,67 @@ const Message = () => (
 );
 
 
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
+}
+
+export function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return windowDimensions;
+}
+
 const Home: NextPage = () => {
-    //todo: the unpredictable overlapping on mobile might be fixed by using margins instead of offset
+    // todo: the unpredictable overlapping on mobile might be fixed by using margins instead of offset
     return (
-        <div>
-            <Parallax pages={1.2}>
-                <BackgroundParallaxLayer/>
+            <Parallax strength={400}>
+                <Background className={styles.background}/>
+                <Grid container
+                      spacing={5}
+                      direction="column"
+                      alignItems="center"
+                      justifyContent="center"
+                      marginTop="2vh"
+                >
+                    <Grid item>
+                        <Fade in={true} timeout={3000}>
+                            <div>
+                                <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
+                            </div>
+                        </Fade>
+                    </Grid>
 
-                <ParallaxLayer offset={0.05} speed={0.7}>
-                    <Fade in={true} timeout={3000}>
-                        <Container>
-                            <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
-                        </Container>
-                    </Fade>
-                </ParallaxLayer>
+                    <Grid item>
+                        <Fade in={true} timeout={1500}>
+                            <Container maxWidth="md">
+                                <Message/>
+                            </Container>
+                        </Fade>
+                    </Grid>
 
-                <ParallaxLayer offset={0.2} speed={0.4} className={styles.main}>
-                    <Fade in={true} timeout={1500}>
-                        <Container maxWidth="md">
-                            <Message/>
-                        </Container>
-                    </Fade>
-                </ParallaxLayer>
+                    <Grid item>
+                        <div className={styles.buttonArea}>
+                            <NextButton href="/messages"/>
+                        </div>
+                    </Grid>
 
-                <ParallaxLayer offset={0.75} speed={0.7} className={styles.main}>
-                    <NextButton href="/messages"/>
-                </ParallaxLayer>
-
+                </Grid>
 
             </Parallax>
-        </div>
+
     )
 
 }

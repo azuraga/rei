@@ -14,11 +14,7 @@
   align-items: center;
 }
 
-.logo {
-  width: 400px;
-  height: auto;
-}
 
 .background {
-  background-image: url($background);
+  content: url($background);
 }
