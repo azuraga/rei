@@ -57,7 +57,6 @@ export function useWindowDimensions() {
 }
 
 const Home: NextPage = () => {
-    // todo: the unpredictable overlapping on mobile might be fixed by using margins instead of offset
     return (
             <Parallax strength={400}>
                 <Background className={styles.background}/>
