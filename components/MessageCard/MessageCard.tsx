@@ -1,5 +1,5 @@
 import styles from "./MessageCard.module.scss"
-import {Card, CardContent, Typography} from "@mui/material";
+import {Card, CardContent, Grid, Typography} from "@mui/material";
 import React from "react";
 import SingleLanguageMessageCard from "./SingleLanguageMessageCard";
 import MultiLanguageMessageCard from "./MultiLanguageMessageCard";
@@ -38,7 +38,8 @@ export function MessageCardBase({author, message, color, vtuber}: MessageBasePro
                 {message}
             </Typography>
             <Typography className={styles.author}>
-                {vtuber && <VerifiedIcon/>} {author}
+                {author}
+                {vtuber && <VerifiedIcon fontSize="inherit"/>}
             </Typography>
         </CardContent>
     </Card>

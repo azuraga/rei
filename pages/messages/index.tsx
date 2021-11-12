@@ -6,10 +6,11 @@ import Footer from "../../components/MainElements/Footer";
 import React from "react";
 import {Grid} from "@mui/material";
 import message_json from './rei_messages.json'
+import message_friends_json from './rei_messages_friends.json'
 
 const MessagesPage: NextPage = () => {
-    const messages = message_json.content.map((message) => <MessageCard rawMessage={message}/>)
-
+    let messages = message_json.content.map((message) => <MessageCard rawMessage={message}/>)
+    messages = messages.concat(message_friends_json.content.map((message) => <MessageCard rawMessage={message}/>))
     return (<>
             {/*<Background className={styles.background}/>*/}
             <Grid container
