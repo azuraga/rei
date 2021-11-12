@@ -1,47 +1,44 @@
 import type { NextPage } from 'next'
-import MessageBoard from "../../components/MessageCard/MessageBoard";
 import MessageCard from "../../components/MessageCard/MessageCard";
+import React from "react";
+import message_json from './rei_messages.json'
+import message_friends_json from './rei_messages_friends.json'
+import {JSONMessage} from "../../components/MessageCard/message";
+import MessageBoard from "../../components/MessageCard/MessageBoard";
+import {Grid, Slide} from "@mui/material";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
-import styles from "../../styles/Home.module.scss";
-import {Background, Parallax} from "react-parallax";
-import React from "react";
-import {Grid} from "@mui/material";
+const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
 const MessagesPage: NextPage = () => {
-    const messages = [<MessageCard author="The mouse of the evening watches" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>,
-    <MessageCard author="mouse" content="お誕生日おめでとう！！！"/>]
+    const friends = message_friends_json.content.map(jsonToJsx);
+    const fans = message_json.content.map(jsonToJsx);
+    const messages = friends.concat(fans);
 
     return (
-        <Parallax strength={200}>
-            <Background className={styles.background}/>
+        <>
             <Grid container
                   spacing={5}
                   alignItems="center"
                   justifyContent="center"
                   marginTop="2vh"
-            >
-                <Grid item>
-                    <img src="MessagePageHeader.svg" alt={"皆のメッセージ"}/>
+                  direction="column"
+                  columns={1}
+                >
+                    <Grid item>
+                        <Slide direction="down" in={true}>
+                            <img src="MessagePageHeader.svg" alt={"皆のメッセージ"}/>
+                        </Slide>
+                    </Grid>
+                    <Grid item>
+                        <MessageBoard messages={messages}/>
+                    </Grid>
+                    <Grid item>
+                        <NextButton href={"/"}/>
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    <MessageBoard messages={messages}/>
-                </Grid>
-                <Grid item xs={12}/>
-                <Grid item>
-                    <NextButton href={"/"}/>
-                </Grid>
-            </Grid>
             <Footer/>
-        </Parallax>
+        </>
     )
 }
 

@@ -2,8 +2,9 @@
 
 html,
 body {
-  //background-image: url($background);
+  background-image: url($background);
   background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -30,3 +31,4 @@ a {
     font-size: 20px;
   }
 }
+
