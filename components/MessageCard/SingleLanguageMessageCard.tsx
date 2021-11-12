@@ -20,6 +20,7 @@ export interface SingleLanguageMessageProps {
 * */
 export default function SingleLanguageMessageCard({author, message}: SingleLanguageMessageProps) {
     const [color, setColor] = useState(getRandomCardColour());
+    // todo: make use of spring physics so state doesn't need to be used.
 
     // the relative x value of a card based on its contextual location
     const [positionState, setPositionState] = useState(PositionContext.mid)
@@ -36,7 +37,7 @@ export default function SingleLanguageMessageCard({author, message}: SingleLangu
             else if (positionState == PositionContext.right)
                 setPositionState(PositionContext.mid)
 
-        }
+        },
     });
 
     const handleClick = () => {
@@ -58,7 +59,7 @@ export default function SingleLanguageMessageCard({author, message}: SingleLangu
             onClose={handleClose}
         >
             <Alert onClose={handleClose} severity="info">
-                This message does not have a translation
+                This message does not have a translation.
                 <br/>
                 翻訳はありません。
             </Alert>
