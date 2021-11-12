@@ -3,6 +3,7 @@ import {getRandomCardColour} from "./colours";
 import {animated, useSpring} from "react-spring";
 import {Alert, Snackbar} from "@mui/material";
 import {MessageCardBase} from "./MessageCard";
+import {JSONMessage} from "./message";
 
 enum PositionContext {
     left = -10,
@@ -11,14 +12,14 @@ enum PositionContext {
 }
 
 export interface SingleLanguageMessageProps {
-    author: string,
-    message: string
+    message: string,
+    meta: JSONMessage
 }
 
  /*
 * In case only one language is available, this card will reject when the user tempts to click it.
 * */
-export default function SingleLanguageMessageCard({author, message}: SingleLanguageMessageProps) {
+export default function SingleLanguageMessageCard({message, meta}: SingleLanguageMessageProps) {
     const [color, setColor] = useState(getRandomCardColour());
     // todo: make use of spring physics so state doesn't need to be used.
 
@@ -67,7 +68,7 @@ export default function SingleLanguageMessageCard({author, message}: SingleLangu
         <animated.div style={styles}
                       onClick={handleClick}
         >
-            <MessageCardBase author={author} message={message} color={color}/>
+            <MessageCardBase author={meta.author} message={message} color={color} vtuber={meta.vtuber}/>
         </animated.div>
     </>
 }

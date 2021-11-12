@@ -1,37 +1,34 @@
 import styles from "./MessageCard.module.scss"
 import {Card, CardContent, Typography} from "@mui/material";
-import {getRandomCardColour} from "./colours";
-import React, {useState} from "react";
-import ReactCardFlip from "react-card-flip";
+import React from "react";
 import SingleLanguageMessageCard from "./SingleLanguageMessageCard";
-import {MultiLanguageMessageCard, MultiLanguageMessageProps} from "./MultiLanguageMessageCard";
+import MultiLanguageMessageCard from "./MultiLanguageMessageCard";
+import VerifiedIcon from '@mui/icons-material/Verified';
+import {JSONMessage} from "./message";
 
-
-export interface MessageProps {
+export interface MessageBaseProps {
     author: string,
     message: string,
     color: string
+    vtuber: boolean
 }
 
-
-export interface JSONMessageEntry {
-    EN: string,
-    JA: string
+export interface MessageCardProps {
+    rawMessage: JSONMessage
 }
 
-
-export default function MessageCard({author, message}: MultiLanguageMessageProps) {
+export default function MessageCard({rawMessage}: MessageCardProps) {
     // according to form, at least one language is provided
+    const {author, message, vtuber} = rawMessage;
     if (message.JA == "")
-        return <SingleLanguageMessageCard author={author} message={message.EN} />
+        return <SingleLanguageMessageCard message={message.EN} meta={{author, message, vtuber}}/>
     else if (message.EN == "")
-        return <SingleLanguageMessageCard author={author} message={message.JA} />
+        return <SingleLanguageMessageCard message={message.JA} meta={{author, message, vtuber}}/>
 
-    return <MultiLanguageMessageCard author={author} message={message} />
-
+    return <MultiLanguageMessageCard rawMessage={rawMessage}/>
 }
 
-export function MessageCardBase({author, message, color}: MessageProps) {
+export function MessageCardBase({author, message, color, vtuber}: MessageBaseProps) {
     const cardRef = React.useRef(null);
     return <Card className={styles.card}
                  ref={cardRef}
@@ -41,7 +38,7 @@ export function MessageCardBase({author, message, color}: MessageProps) {
                 {message}
             </Typography>
             <Typography className={styles.author}>
-                {author}
+                {vtuber && <VerifiedIcon/>} {author}
             </Typography>
         </CardContent>
     </Card>
