@@ -7,10 +7,28 @@ import React from "react";
 import {Grid} from "@mui/material";
 import message_json from './rei_messages.json'
 import message_friends_json from './rei_messages_friends.json'
+import {JSONMessage} from "../../components/MessageCard/message";
+
+/**
+ * Shuffles array in place. ES6 version
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle(a: Array<any>) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
 const MessagesPage: NextPage = () => {
-    let messages = message_json.content.map((message) => <MessageCard rawMessage={message}/>)
-    messages = messages.concat(message_friends_json.content.map((message) => <MessageCard rawMessage={message}/>))
+    const friends = message_friends_json.content.map(jsonToJsx);
+    const fans = message_json.content.map(jsonToJsx);
+
+    const messages = friends.concat(fans);
+
     return (<>
             {/*<Background className={styles.background}/>*/}
             <Grid container
