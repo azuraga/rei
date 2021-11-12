@@ -1,25 +1,28 @@
 import React from "react";
 import Masonry from '@mui/lab/Masonry';
-import {Grow} from "@mui/material";
 import styles from "./MessageCard.module.scss"
+import {config, useTransition, animated} from "react-spring";
 
 export interface MessageBoardProps {
     messages: React.ReactElement[]
 }
 
 export default function MessageBoard({messages}: MessageBoardProps) {
+    const transitions = useTransition(messages, {
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        trail: 50,
+        config: config.default
+    })
+
     return <Masonry columns={3} spacing={3} className={styles.board}>
-        {messages.map((message, index) =>{
-            return <Grow
-                key={index}
-                in={true}
-                style={{
-                    transformOrigin: '0 0 0'
-                }}
-                timeout={(/*index*/ + 1) * 900} // todo: find better way to sequential transition the messages
-            >
-                <div>{message}</div>
-            </Grow>
-        })}
+        {
+            transitions((style, element) => {
+                return <animated.div style={style}>
+                    {element}
+                </animated.div>
+            })
+
+        }
     </Masonry>
 }
