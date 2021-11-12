@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import MessageBoard from "../../components/MessageCard/MessageBoard";
-import MessageCard from "../../components/MessageCard/MessageCard";
+import MessageCard, {MultiLanguageMessageCard} from "../../components/MessageCard/MessageCard";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
 import styles from "../../styles/Home.module.scss";
@@ -10,7 +10,7 @@ import {Grid} from "@mui/material";
 import message_json from './rei_messages.json'
 
 const MessagesPage: NextPage = () => {
-    const messages = message_json.content.map((message) => <MessageCard author={message.author} message={message.message}/>)
+    const messages = message_json.content.map((message) => <MultiLanguageMessageCard author={message.author} message={message.message}/>)
 
     return (
         <Parallax strength={400}>
