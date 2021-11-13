@@ -1,52 +1,52 @@
 {
-    "Content":[
+    "content":[
         {
             "artist":"キルア・ゾルディック",
-            "image":"/pages/fanart/fanart-images/5F5A2113-D620-45DD-B073-C9390BBED40A - キルア・ゾルディック.jpeg"
+            "image":"fanart-images/5F5A2113-D620-45DD-B073-C9390BBED40A - キルア・ゾルディック.jpeg"
         },
        {
             "artist":"Ethel Chamomile",
-            "image":"/pages/fanart/fanart-images/202110231002 - Rei's 3rd Anniv - Ethel Chamomile.png"
+            "image":"fanart-images/202110231002 - Rei's 3rd Anniv - Ethel Chamomile.png"
        },
        {
            "artist":"Danny Bryan",
-           "image":"/pages/fanart/fanart-images/fanart-images/Create.TR1 - Danny Bryan.png"
+           "image":"fanart-images/Create.TR1 - Danny Bryan.png"
        },
        {
            "artist":"Yuki",
-           "image":"/pages/fanart/fanart-images/fanart-images/E7903ECA-D3B8-4439-A907-BB0DFA4CF7F0 - Yuki.jpeg"
+           "image":"fanart-images/E7903ECA-D3B8-4439-A907-BB0DFA4CF7F0 - Yuki.jpeg"
        },
        {
            "artist":"Lemonade /レモネード",
-           "image":"/pages/fanart/fanart-images/EDD482E1-1A1B-4068-909F-D220A104FFBD - Lemonade _レモネード.jpeg"
+           "image":"fanart-images/EDD482E1-1A1B-4068-909F-D220A104FFBD - Lemonade _レモネード.jpeg"
        },
        {
            "artist":"独行玩家",
-           "image":"/pages/fanart/fanart-images/IMG_20211102_162439 - 独行玩家.jpg"
+           "image":"fanart-images/IMG_20211102_162439 - 独行玩家.jpg"
        },
        {
            "artist":"DY Haku",
-           "image":"/pages/fanart/fanart-images/REI - DY Haku.JPG"
+           "image":"fanart-images/REI - DY Haku.JPG"
        },
        {
             "artist":"Nathan",
-            "image":"/pages/fanart/fanart-images/Rei 3rd Anniversary! - Nathan.png"
+            "image":"fanart-images/Rei 3rd Anniversary! - Nathan.png"
        },
        {
            "artist":"add2Kart",
-           "image":"/pages/fanart/fanart-images/rei_anniversary_fanart - add2Kart.jpg"
+           "image":"fanart-images/rei_anniversary_fanart - add2Kart.jpg"
        },
        {
            "artist":"Aleister Zeed",
-           "image":"/pages/fanart/fanart-images/Rei-Craft - Aleister Zeed.png"
+           "image":"fanart-images/Rei-Craft - Aleister Zeed.png"
        },
        {
            "artist":"okami kuro",
-           "image":"/pages/fanart/fanart-images/tadano rei by O-Kuro_20211011220231 - okami kuro.png"
+           "image":"fanart-images/tadano rei by O-Kuro_20211011220231 - okami kuro.png"
        },
        {
            "artist":"Sarkaz",
-           "image":"/pages/fanart/fanart-images/Tadano Rei Pixel - Sarkaz.png"
+           "image":"fanart-images/Tadano Rei Pixel - Sarkaz.png"
        }
     ]
 }

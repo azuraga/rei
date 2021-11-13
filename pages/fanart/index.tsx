@@ -1,21 +1,17 @@
 import type { NextPage } from 'next'
-import MessageCard from "../../components/artCard/ArtCard";
 import React from "react";
-import {JSONMessage} from "../../components/artCard/message";
-import MessageBoard from "../../components/artCard/MessageBoard";
+import ImageBoard from "../../components/artCard/ImageBoard";
 import {Grid, Slide} from "@mui/material";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
-import message_json from '../messages/rei_messages.json'
-import message_friends_json from '../messages/rei_messages_friends.json'
 import art_json from './art.json'
 import { JSONArt } from '../../components/artCard/art';
+import ImageCard from "../../components/artCard/ImageCard";
 
-const jsonToJsx = (message: JSONArt) => <MessageCard rawMessage={message}/>;
-
+const jsonToJsx = (message: JSONArt) => <ImageCard artist={message.artist} image={message.image}/>;
 
 const ArtPage: NextPage = () => {
-    const art = art_json.Content.map(jsonToJsx)
+    const art = art_json.content.map(jsonToJsx);
     return (
         <>
             <Grid container
@@ -32,7 +28,7 @@ const ArtPage: NextPage = () => {
                         </Slide>
                     </Grid>
                     <Grid item>
-                        <MessageBoard messages={art}/>
+                        <ImageBoard messages={art}/>
                     </Grid>
                     <Grid item>
                         <NextButton href={"comissionedArt"}/>
