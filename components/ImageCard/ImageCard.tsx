@@ -24,11 +24,12 @@ export default function ImageCard({artist,image}: ImageCardProps) {
     <div>
         <Button onClick={handleToggle}><ImageCardBase artist={artist} image={image} color={color}/></Button>
         <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 10 }}
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
         onClick={handleClose}
       >
-       <img alt = "test" src={image} />
+       <img alt = "test" src={image} height="auto" width="50%"/>
+
        </Backdrop>
      </div>
     );

@@ -15,7 +15,8 @@ export function ImageCardBase({artist,image,color}: ArtBaseProps) {
                  sx={{background: color}}>            
         <CardMedia
             component= "img"
-            height="500"
+            height="50%"
+            width="auto"
             image={image}
          />  
         <CardContent>
