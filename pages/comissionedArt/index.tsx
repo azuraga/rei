@@ -2,9 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../../styles/Home.module.scss'
 import NextButton from "../../components/Button/NextButton";
-
   
-const comissionedArt: NextPage = () => {
+const comissionedArt: NextPage = (imageSrc,imageAlt) => {
     return (
         <div className={styles.container}>
             <Head>
