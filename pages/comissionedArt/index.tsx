@@ -3,17 +3,15 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.scss'
 import NextButton from "../../components/Button/NextButton";
 
-
-
-const CommisionedArt: NextPage = () => {
+  
+const comissionedArt: NextPage = () => {
     return (
         <div className={styles.container}>
             <Head>
                 <title>Tadano Rei Birthday Project</title>
                 <meta name="description" content="Happy birthday!" />
-                <link rel="icon" href="/favicon.ico" />
+               // <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <main className={styles.main}>
                 <NextButton href="credits"/>
             </main>
@@ -21,4 +19,4 @@ const CommisionedArt: NextPage = () => {
     )
 }
 
-export default CommisionedArt
+export default comissionedArt

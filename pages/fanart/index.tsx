@@ -35,7 +35,7 @@ const ArtPage: NextPage = () => {
                         <MessageBoard messages={art}/>
                     </Grid>
                     <Grid item>
-                        <NextButton href={"commisioned-art"}/>
+                        <NextButton href={"comissionedArt"}/>
                     </Grid>
                 </Grid>
             <Footer/>
