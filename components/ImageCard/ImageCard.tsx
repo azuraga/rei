@@ -11,7 +11,7 @@ export interface ImageCardProps {
 
 export default function ImageCard({artist,image}: ImageCardProps) {
    
-    const  [open, setOpen] = React.useState(true);
+    const  [open, setOpen] = React.useState(false);
     const [color, setColor] = useState(getRandomCardColour());
 
     const handleClose = () => {
@@ -20,7 +20,6 @@ export default function ImageCard({artist,image}: ImageCardProps) {
     const handleToggle = () => {
         setOpen(!open);
     }
-    if(open){
     return(
     <div>
         <Button onClick={handleToggle}><ImageCardBase artist={artist} image={image} color={color}/></Button>
@@ -33,10 +32,7 @@ export default function ImageCard({artist,image}: ImageCardProps) {
        </Backdrop>
      </div>
     );
-    }
-    else{
     // todo: make use of spring physics so state doesn't need to be used.
     // the relative x value of a card based on its contextual location
-    return <ImageCardBase artist={artist} image={image} color={color}/>
-    }
+   // return <ImageCardBase artist={artist} image={image} color={color}/>
 }
