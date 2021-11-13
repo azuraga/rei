@@ -1,20 +1,21 @@
 import type { NextPage } from 'next'
-import MessageCard from "../../components/MessageCard/MessageCard";
+import MessageCard from "../../components/artCard/ArtCard";
 import React from "react";
-import message_json from './rei_messages.json'
-import message_friends_json from './rei_messages_friends.json'
-import {JSONMessage} from "../../components/MessageCard/message";
-import MessageBoard from "../../components/MessageCard/MessageBoard";
+import {JSONMessage} from "../../components/artCard/message";
+import MessageBoard from "../../components/artCard/MessageBoard";
 import {Grid, Slide} from "@mui/material";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
-const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
+import message_json from '../messages/rei_messages.json'
+import message_friends_json from '../messages/rei_messages_friends.json'
+import art_json from './art.json'
+import { JSONArt } from '../../components/artCard/art';
 
-const MessagesPage: NextPage = () => {
-    const friends = message_friends_json.content.map(jsonToJsx);
-    const fans = message_json.content.map(jsonToJsx);
-    const messages = friends.concat(fans);
+const jsonToJsx = (message: JSONArt) => <MessageCard rawMessage={message}/>;
 
+
+const ArtPage: NextPage = () => {
+    const art = art_json.Content.map(jsonToJsx)
     return (
         <>
             <Grid container
@@ -31,10 +32,10 @@ const MessagesPage: NextPage = () => {
                         </Slide>
                     </Grid>
                     <Grid item>
-                        <MessageBoard messages={messages}/>
+                        <MessageBoard messages={art}/>
                     </Grid>
                     <Grid item>
-                        <NextButton href={"fanart"}/>
+                        <NextButton href={"commisioned-art"}/>
                     </Grid>
                 </Grid>
             <Footer/>
@@ -42,4 +43,4 @@ const MessagesPage: NextPage = () => {
     )
 }
 
-export default MessagesPage
+export default ArtPage
