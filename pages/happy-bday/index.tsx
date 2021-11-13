@@ -1,15 +1,12 @@
 import type { NextPage } from 'next'
-import {Box, Container, Fade, Grid, Typography} from "@mui/material";
+import {Container, Fade, Grid, Typography} from "@mui/material";
 import styles from "../../styles/HappyBirthday.module.scss";
 import NextButton from "../../components/Button/NextButton";
-import {useEffect, useState} from "react";
 import React from 'react';
 import {Background, Parallax} from "react-parallax";
 
 const Message = () => (
-        <Typography variant="body1" align="center">
-            3周年おめでとうございます。
-            <br/><br/>
+        <Typography variant="body1">
             これほど長い期間にわたって活動しているVTuberはそうそういないでしょうね。あなたの最初の中途半端な動画から、今の本気と情熱を込めている配信まで見ることができて光栄でした。この素敵な日を迎えられたのはあなたの献身と努力の賜物です。
             <br/><br/>
             この数年間、あなたは視聴者さんに数え切れないほどの笑顔を下さっていました。困っている人がいても、ただ面白い場所が欲しい人がいても、あなたはいつも誰でもを迎え入れ、みんなのために温かい居場所を作ろうと努力しました。
@@ -37,12 +34,18 @@ const Home: NextPage = () => {
             <Parallax strength={400}>
                 <Background className={styles.background}/>
                 <Grid container
-                      alignItems="center"
+                      alignItems="flex-start"
                       justifyContent="center"
-                      marginTop="10vh"
+                      marginTop="5vh"
+                      spacing={5}
                 >
+                    <Grid item xs={12}>
+                        <Typography variant="h3" align="center">
+                            <b>3周年おめでとうございます。</b>
+                        </Typography>
+                    </Grid>
                     <Grid item>
-                        <Fade in={true} timeout={1500}>
+                        <Fade in={true} timeout={3000}>
                             <img className={styles.commission} src="/commission.png" alt="commission"/>
                         </Fade>
                     </Grid>
