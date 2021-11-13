@@ -12,13 +12,13 @@ const Message = () => (
             <br></br>
             Product Owner - Sheep
             <br></br>
-            Lead developer - Azuraga
+            Lead Developer - Azuraga
             <br></br>
-            developer - RedMap
+            Developer - RedMap
             <br></br>
-            developer - short643
+            Developer - short643
             <br></br>
-            Commissioned artist - @Ninami15(twitter.com/coppersketches)
+            Commissioned artist -  <a href="https://www.twitter.com/coppersketches">@Ninami15</a>
             <br></br>
         </Typography>
 );
