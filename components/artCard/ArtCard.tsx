@@ -17,7 +17,7 @@ export interface ArtCardProps {
 
 export default function ArtBoard({rawMessage}: ArtCardProps) {
     const {artist, image} = rawMessage;
-    return <SingleLanguageMessageCard artist={artist}  meta={{artist,image}}/>
+    return <SingleLanguageMessageCard artist={artist} image={image}  meta={{artist,image}}/>
 }
 
 export function ArtCardBase({artist,image,color}: ArtBaseProps) {
@@ -25,6 +25,11 @@ export function ArtCardBase({artist,image,color}: ArtBaseProps) {
     return <Card className={styles.card}
                  ref={cardRef}
                  sx={{background: color}}>            
+        <CardMedia
+            component= "img"
+            height="500"
+            image={image}
+         />  
         <CardContent>
             <Typography className={styles.author}>
                 {artist}

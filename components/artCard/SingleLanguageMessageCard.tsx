@@ -13,13 +13,14 @@ enum PositionContext {
 
 export interface SingleLanguageMessageProps {
     artist: string,
+    image: string
     meta: JSONArt
 }
 
  /*
 * In case only one language is available, this card will reject when the user tempts to click it.
 * */
-export default function SingleLanguageMessageCard({artist,meta}: SingleLanguageMessageProps) {
+export default function SingleLanguageMessageCard({artist,image,meta}: SingleLanguageMessageProps) {
     const [color, setColor] = useState(getRandomCardColour());
     // todo: make use of spring physics so state doesn't need to be used.
 
@@ -68,7 +69,7 @@ export default function SingleLanguageMessageCard({artist,meta}: SingleLanguageM
         <animated.div style={styles}
                       onClick={handleClick}
         >
-            <ArtCardBase artist={meta.artist} color={color}/>
+            <ArtCardBase artist={meta.artist}image={meta.image} color={color}/>
         </animated.div>
     </>
 }
