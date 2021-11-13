@@ -5,13 +5,19 @@
   height: auto;
 }
 
-.message {
-
+.commission {
+  width: 25vw;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
+
 .background {
   content: url($background);
 }
 
 .buttonArea {
-  padding-bottom: 5vh;
+  justify-content: center;
+  display: flex;
+  margin-top: 5vh;
+  margin-bottom: 8vh;
 }

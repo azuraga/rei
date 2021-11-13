@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import {Container, Fade, Grid, Typography} from "@mui/material";
+import {Box, Container, Fade, Grid, Typography} from "@mui/material";
 import styles from "../../styles/HappyBirthday.module.scss";
 import NextButton from "../../components/Button/NextButton";
 import {useEffect, useState} from "react";
@@ -32,46 +32,18 @@ const Message = () => (
         </Typography>
 );
 
-
-function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-        width,
-        height
-    };
-}
-
-export function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return windowDimensions;
-}
-
 const Home: NextPage = () => {
     return (
             <Parallax strength={400}>
                 <Background className={styles.background}/>
                 <Grid container
-                      spacing={5}
-                      direction="column"
                       alignItems="center"
                       justifyContent="center"
-                      marginTop="2vh"
+                      marginTop="10vh"
                 >
                     <Grid item>
-                        <Fade in={true} timeout={3000}>
-                            <div>
-                                <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
-                            </div>
+                        <Fade in={true} timeout={1500}>
+                            <img className={styles.commission} src="/commission.png" alt="commission"/>
                         </Fade>
                     </Grid>
 
@@ -83,16 +55,11 @@ const Home: NextPage = () => {
                         </Fade>
                     </Grid>
 
-                    <Grid item>
-                        <div className={styles.buttonArea}>
-                            <NextButton href="/messages"/>
-                        </div>
-                    </Grid>
-
                 </Grid>
-
+                <div className={styles.buttonArea}>
+                    <NextButton href="/messages"/>
+                </div>
             </Parallax>
-
     )
 
 }
