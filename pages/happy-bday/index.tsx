@@ -31,6 +31,7 @@ const Message = () => (
 
 const Home: NextPage = () => {
     return (
+        <>
             <Parallax strength={400}>
                 <Background className={styles.background}/>
                 <Grid container
@@ -44,6 +45,7 @@ const Home: NextPage = () => {
                             <b>3周年おめでとうございます。</b>
                         </Typography>
                     </Grid>
+
                     <Grid item>
                         <Fade in={true} timeout={3000}>
                             <img className={styles.commission} src="/commission.png" alt="commission"/>
@@ -63,6 +65,7 @@ const Home: NextPage = () => {
                     <NextButton href="/messages"/>
                 </div>
             </Parallax>
+        </>
     )
 
 }

@@ -8,6 +8,7 @@ import MessageBoard from "../../components/MessageCard/MessageBoard";
 import {Grid, Slide} from "@mui/material";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
+
 const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
 const MessagesPage: NextPage = () => {
@@ -23,7 +24,6 @@ const MessagesPage: NextPage = () => {
                   justifyContent="center"
                   marginTop="2vh"
                   direction="column"
-                  columns={1}
                 >
                     <Grid item>
                         <Slide direction="down" in={true}>

@@ -1,5 +1,5 @@
 import styles from "./MessageCard.module.scss"
-import {Card, CardContent, Grid, Typography} from "@mui/material";
+import {Card, CardContent, Typography} from "@mui/material";
 import React from "react";
 import SingleLanguageMessageCard from "./SingleLanguageMessageCard";
 import MultiLanguageMessageCard from "./MultiLanguageMessageCard";
@@ -29,9 +29,7 @@ export default function MessageCard({rawMessage}: MessageCardProps) {
 }
 
 export function MessageCardBase({author, message, color, vtuber}: MessageBaseProps) {
-    const cardRef = React.useRef(null);
     return <Card className={styles.card}
-                 ref={cardRef}
                  sx={{background: color}}>
         <CardContent>
             <Typography className={styles.content}>
