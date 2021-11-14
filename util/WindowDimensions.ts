@@ -6,6 +6,10 @@ function getWindowDimensions() {
 }
 
 export default function useWindowDimensions() {
+    if (typeof window === 'undefined') {
+        return undefined;
+    }
+
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
     useEffect(() => {

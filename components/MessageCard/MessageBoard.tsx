@@ -10,20 +10,21 @@ export interface MessageBoardProps {
 
 
 export default function MessageBoard({messages}: MessageBoardProps) {
-    let columnCount;
-    if (typeof window !== 'undefined') {
-        const { height, width } = useWindowDimensions();
-        columnCount = width < 860 ? 1 : 3;
-    } else {
-        columnCount = 1;
-    }
-
     const transitions = useTransition(messages, {
         from: { opacity: 0 },
         enter: { opacity: 1 },
         trail: 50,
         config: config.default
     })
+
+    let columnCount;
+    const dims = useWindowDimensions();
+    if (dims === undefined) {
+        columnCount = 1;
+    } else {
+        const {height, width} = dims;
+        columnCount = width < 860 ? 1 : 3;
+    }
 
     return <Masonry columns={columnCount} spacing={3} className={styles.board}>
         {

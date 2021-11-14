@@ -28,10 +28,6 @@ const cardStyle = {
     borderRadius: '10px',
     backgroundColor: '#FCD9D7'
 }
-const boxStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-}
 
 type CreditCardProps = PropsWithChildren<{
     title: string
@@ -41,7 +37,10 @@ type CreditCardProps = PropsWithChildren<{
 
 function CreditCard({title, name, avatar, children}: CreditCardProps) {
     return  <Card sx={cardStyle} key={0}>
-        <Box sx={boxStyle}>
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+        }}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     {title}
@@ -64,12 +63,12 @@ function CreditCard({title, name, avatar, children}: CreditCardProps) {
 }
 
 const creditList = [
-    <CreditCard avatar="staff/sheep.jpg" name="Sheep" title="Product Owner">
+    <CreditCard key={0} avatar="staff/sheep.jpg" name="Sheep" title="Product Owner">
         <Tooltip title="@Idle_Sheep">
             <Button href="https://twitter.com/Idle_Sheep" startIcon={<TwitterIcon/>}/>
         </Tooltip>
     </CreditCard>,
-    <CreditCard avatar="staff/azuraga.png" name="Azuraga" title="Head Developer">
+    <CreditCard key={1} avatar="staff/azuraga.png" name="Azuraga" title="Head Developer">
         <Tooltip title="@azuragasetsu">
             <Button href="https://twitter.com/azuragasetsu" startIcon={<TwitterIcon/>}/>
         </Tooltip>
@@ -77,9 +76,9 @@ const creditList = [
             <Button href="https://www.youtube.com/channel/UC4msLaLAIDy1XTAr-Whw4-g" startIcon={<YouTubeIcon/>}/>
         </Tooltip>
     </CreditCard>,
-    <CreditCard avatar="staff/redmap.png" name="RedMap" title="Developer"/>,
-    <CreditCard avatar="staff/short813.png" name="short813" title="Developer"/>,
-    <CreditCard avatar="staff/coppersketches.jpg" name="Ninami15" title="Commissioned Artist">
+    <CreditCard key={2} avatar="staff/redmap.png" name="RedMap" title="Developer"/>,
+    <CreditCard key={3} avatar="staff/short813.png" name="short813" title="Developer"/>,
+    <CreditCard key={4} avatar="staff/coppersketches.jpg" name="Ninami15" title="Commissioned Artist">
         <Tooltip title="@coppersketches">
             <Button href="https://twitter.com/coppersketches" startIcon={<TwitterIcon/>}/>
         </Tooltip>
@@ -87,14 +86,15 @@ const creditList = [
 ];
 
 
-const credits: NextPage = () => {
+const Credits: NextPage = () => {
 
     let columnCount;
-    if (typeof window !== 'undefined') {
-        const { height, width } = useWindowDimensions();
-        columnCount = width < 860 ? 1 : 3;
-    } else {
+    const dims = useWindowDimensions();
+    if (dims === undefined) {
         columnCount = 1;
+    } else {
+        const {height, width} = dims;
+        columnCount = width < 860 ? 1 : 3;
     }
 
     return ( <>
@@ -131,4 +131,4 @@ const credits: NextPage = () => {
 
 }
 
-export default credits
+export default Credits
