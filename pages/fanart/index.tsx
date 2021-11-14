@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import React from "react";
-import {Grid, Slide} from "@mui/material";
+import {easing, Grid, Slide} from "@mui/material";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
 import art_json from './art.json'
@@ -21,23 +21,32 @@ const ArtPage: NextPage = () => {
             <div className={styles.previousButton}>
                 <NextButton href={"messages"}/>
             </div>
-            <Grid container
-                  spacing={5}
-                  alignItems="center"
-                  justifyContent="center"
-                  marginTop="2vh"
-                  direction="column"
-                  columns={1}
+
+            <Slide
+                direction="left"
+                timeout={2000}
+                easing={{ enter: easing.easeInOut, exit: easing.easeInOut}}
+                in={true}
+                unmountOnExit
+                mountOnEnter
+            >
+                <Grid container
+                      spacing={5}
+                      alignItems="center"
+                      justifyContent="center"
+                      marginTop="2vh"
+                      direction="column"
+                      columns={1}
                 >
                     <Grid item>
-                        <Slide direction="down" in={true}>
-                            <img src="MessagePageHeader.svg" alt={"皆のメッセージ"} className={styles.header}/>
-                        </Slide>
+                        <img src="MessagePageHeader.svg" alt={"皆のメッセージ"} className={styles.header}/>
                     </Grid>
                     <Grid item>
                         <MessageBoard messages={art}/>
                     </Grid>
                 </Grid>
+            </Slide>
+
 
             <Footer/>
         </>

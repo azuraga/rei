@@ -5,15 +5,19 @@ import {useRouter} from "next/router";
 
 interface NextButtonProps {
     href: string
+    notify?: any
 }
 
-export default function NextButton({href}: NextButtonProps) {
+export default function NextButton({href, notify}: NextButtonProps) {
     const [clicked, setClicked] = useState(false);
     const router = useRouter();
 
     const goIfClicked = () => {
-        if (clicked)
+        if (clicked) {
             router.push(href);
+            if (typeof notify !== 'undefined')
+                notify();
+        }
     }
 
     return <Slide direction="up"
