@@ -24,7 +24,7 @@ const Message = () => (
             Reiyansであることは私達にとって最高の名誉です。
             <br/><br/>
             これからもあなたのそばにいて、夢を叶えさせてください。
-            <br/><br/><br/><br/>
+            <br/><br/>
             Reiyansより
         </Typography>
 );

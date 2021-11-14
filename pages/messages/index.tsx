@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import MessageCard from "../../components/MessageCard/MessageCard";
 import React from "react";
-import message_json from './rei_messages.json'
-import message_friends_json from './rei_messages_friends.json'
+import message_json from './rei_messages.json';
+import message_vtuber_json from './rei_messages_vtuber.json'
 import {JSONMessage} from "../../components/MessageCard/message";
 import MessageBoard from "../../components/MessageCard/MessageBoard";
 import {Grid, Slide} from "@mui/material";
@@ -13,7 +13,7 @@ import styles from "/styles/Messages.module.scss"
 const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
 const MessagesPage: NextPage = () => {
-    const friends = message_friends_json.content.map(jsonToJsx);
+    const friends = message_vtuber_json.content.map(jsonToJsx);
     const fans = message_json.content.map(jsonToJsx);
     const messages = friends.concat(fans);
 
