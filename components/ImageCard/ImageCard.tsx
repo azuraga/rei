@@ -41,7 +41,4 @@ export default function ImageCard({artist,image}: ImageCardProps) {
         </animated.div>
      </>
     );
-    // todo: make use of spring physics so state doesn't need to be used.
-    // the relative x value of a card based on its contextual location
-   // return <ImageCardBase artist={artist} image={image} color={color}/>
 }
