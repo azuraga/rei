@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import React from "react";
-import {easing, Grid, Slide} from "@mui/material";
+import {Box, Chip, easing, Grid, Slide} from "@mui/material";
 import Footer from "../../components/MainElements/Footer";
 import art_json from './art.json'
 import { JSONArt } from '../../components/ImageCard/art';
@@ -9,6 +9,7 @@ import MessageBoard from "../../components/MessageCard/MessageBoard";
 import styles from "/styles/Messages.module.scss"
 import {NextButtonWithLabel, PreviousButtonWithLabel} from "../../components/Button/PreparedButtons";
 import Navigation from "../../components/MainElements/Navigation";
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
 
 const jsonToJsx = (message: JSONArt) => <ImageCard artist={message.artist} image={message.image}/>;
 
@@ -36,6 +37,12 @@ const ArtPage: NextPage = () => {
                 >
                     <Grid item>
                         <img src="MessagePageHeader.svg" alt={"皆のメッセージ"} className={styles.header}/>
+                    </Grid>
+                    <Grid item>
+                        <Box display="flex" flexDirection="column" gap={1}>
+                            <Chip icon={<ZoomInIcon />} label="拡大するように画像を押してください" className={styles.chipText}/>
+                            <Chip label="Click on the image to enlarge" className={styles.chipText}/>
+                        </Box>
                     </Grid>
                     <Grid item>
                         <MessageBoard messages={art}/>

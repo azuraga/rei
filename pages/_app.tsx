@@ -9,6 +9,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <title>Tadano Rei Birthday Project</title>
       <meta name="description" content="Happy birthday!" />
       <link rel="icon" href="/favicon.ico" />
+      <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      />
     </Head>
     <Component {...pageProps} />
   </>

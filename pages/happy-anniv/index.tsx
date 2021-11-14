@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import {
     Avatar,
     Box,
-    Button,
     Chip,
     Container,
     Fade,
@@ -13,9 +12,9 @@ import styles from "../../styles/HappyBirthday.module.scss";
 import React, {useState} from 'react';
 import {Background, Parallax} from "react-parallax";
 import {DownButtonWithLabel} from "../../components/Button/PreparedButtons";
-import {useSpring} from "react-spring";
 import ReactCardFlip from "react-card-flip";
 import TranslateIcon from '@mui/icons-material/Translate';
+
 const JapaneseMessage = () => (
         <Typography variant="body1">
             これほど長い期間にわたって活動しているVTuberはそうそういないでしょうね。あなたの最初の中途半端な動画から、今の本気と情熱を込めている配信まで見ることができて光栄でした。この素敵な日を迎えられたのはあなたの献身と努力の賜物です。
@@ -84,12 +83,12 @@ const Home: NextPage = () => {
 
                     <Grid item xs={12}>
                         <Box display="flex" alignItems="center" justifyContent="center">
-                            <Button
-                                variant="outlined"
-                                startIcon={<TranslateIcon />}
-                                onClick={() => setShowEN(!showEN)}>
-                                {showEN ? '訳する' : 'Translate'}
-                            </Button>
+                            <Chip
+                                icon={<TranslateIcon />}
+                                label={showEN ? '訳する' : 'Translate'}
+                                className={styles.chipText}
+                                onClick={() => setShowEN(!showEN)}
+                            />
                         </Box>
                     </Grid>
 
