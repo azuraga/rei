@@ -5,12 +5,15 @@ import message_json from './rei_messages.json';
 import message_vtuber_json from './rei_messages_vtuber.json'
 import {JSONMessage} from "../../components/MessageCard/message";
 import MessageBoard from "../../components/MessageCard/MessageBoard";
-import {Grid, Slide} from "@mui/material";
-import NextButton from "../../components/Button/NextButton";
+import { Grid, Slide} from "@mui/material";
 import Footer from "../../components/MainElements/Footer";
 import styles from "/styles/Messages.module.scss"
+import {NextButtonWithLabel} from "../../components/Button/PreparedButtons";
 
 const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
+
+
+
 
 const MessagesPage: NextPage = () => {
     const friends = message_vtuber_json.content.map(jsonToJsx);
@@ -19,9 +22,7 @@ const MessagesPage: NextPage = () => {
 
     return (
         <>
-            <div className={styles.nextButton}>
-                <NextButton href={"fanart"}/>
-            </div>
+            <NextButtonWithLabel href={"fanart"}>fanart</NextButtonWithLabel>
             <Grid container
                   spacing={5}
                   alignItems="center"

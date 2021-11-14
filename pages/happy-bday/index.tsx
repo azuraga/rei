@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import {Container, Fade, Grid, Typography} from "@mui/material";
+import {Avatar, Box, Chip, Container, Fade, Grid, Typography} from "@mui/material";
 import styles from "../../styles/HappyBirthday.module.scss";
 import NextButton from "../../components/Button/NextButton";
 import React from 'react';
@@ -48,8 +48,23 @@ const Home: NextPage = () => {
 
                     <Grid item>
                         <Fade in={true} timeout={3000}>
-                            <img className={styles.commission} src="/commission.png" alt="commission"/>
+                            <Box
+                                display="flex"
+                                flexDirection="column"
+                                alignItems="center"
+                            >
+                                <img className={styles.commission} src="/commission.png" alt="commission"/>
+                                <Chip
+                                    label="by @Ninami15"
+                                    component="a"
+                                    href="https://www.twitter.com/coppersketches"
+                                    clickable
+                                    avatar={<Avatar alt="Ninami15" src="staff/coppersketches.jpg"/>}
+                                    className={styles.commissionAuthor}
+                                />
+                            </Box>
                         </Fade>
+
                     </Grid>
 
                     <Grid item>
