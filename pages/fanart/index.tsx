@@ -7,6 +7,7 @@ import art_json from './art.json'
 import { JSONArt } from '../../components/ImageCard/art';
 import ImageCard from "../../components/ImageCard/ImageCard";
 import MessageBoard from "../../components/MessageCard/MessageBoard";
+import styles from "/styles/Messages.module.scss"
 
 const jsonToJsx = (message: JSONArt) => <ImageCard artist={message.artist} image={message.image}/>;
 
@@ -14,6 +15,9 @@ const ArtPage: NextPage = () => {
     const art = art_json.content.map(jsonToJsx);
     return (
         <>
+            <div className={styles.nextButton}>
+                <NextButton href={"credits"}/>
+            </div>
             <Grid container
                   spacing={5}
                   alignItems="center"
@@ -24,16 +28,14 @@ const ArtPage: NextPage = () => {
                 >
                     <Grid item>
                         <Slide direction="down" in={true}>
-                            <img src="MessagePageHeader.svg" alt={"皆のメッセージ"}/>
+                            <img src="MessagePageHeader.svg" alt={"皆のメッセージ"} className={styles.header}/>
                         </Slide>
                     </Grid>
                     <Grid item>
                         <MessageBoard messages={art}/>
                     </Grid>
-                    <Grid item>
-                        <NextButton href={"credits"}/>
-                    </Grid>
                 </Grid>
+
             <Footer/>
         </>
     )

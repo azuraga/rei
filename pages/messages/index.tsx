@@ -8,6 +8,7 @@ import MessageBoard from "../../components/MessageCard/MessageBoard";
 import {Grid, Slide} from "@mui/material";
 import NextButton from "../../components/Button/NextButton";
 import Footer from "../../components/MainElements/Footer";
+import styles from "/styles/Messages.module.scss"
 
 const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
@@ -18,6 +19,9 @@ const MessagesPage: NextPage = () => {
 
     return (
         <>
+            <div className={styles.nextButton}>
+                <NextButton href={"fanart"}/>
+            </div>
             <Grid container
                   spacing={5}
                   alignItems="center"
@@ -27,16 +31,14 @@ const MessagesPage: NextPage = () => {
                 >
                     <Grid item>
                         <Slide direction="down" in={true}>
-                            <img src="MessagePageHeader.svg" alt={"皆のメッセージ"}/>
+                            <img src="MessagePageHeader.svg" alt={"皆のメッセージ"} className={styles.header}/>
                         </Slide>
                     </Grid>
                     <Grid item>
                         <MessageBoard messages={messages}/>
                     </Grid>
-                    <Grid item>
-                        <NextButton href={"fanart"}/>
-                    </Grid>
                 </Grid>
+
             <Footer/>
         </>
     )
