@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import React from "react";
-import {, easing, Grid, Slide} from "@mui/material";
+import {easing, Grid, Slide} from "@mui/material";
 import Footer from "../../components/MainElements/Footer";
 import art_json from './art.json'
 import { JSONArt } from '../../components/ImageCard/art';
