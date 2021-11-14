@@ -20,7 +20,10 @@
 
 .buttonArea {
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   display: flex;
+  gap: 0.3em;
   margin-top: 3vh;
   margin-bottom: 8vh;
 }

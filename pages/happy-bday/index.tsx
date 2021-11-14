@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import {Avatar, Box, Chip, Container, Fade, Grid, Typography} from "@mui/material";
 import styles from "../../styles/HappyBirthday.module.scss";
-import NextButton from "../../components/Button/NextButton";
 import React from 'react';
 import {Background, Parallax} from "react-parallax";
+import {DownButtonWithLabel} from "../../components/Button/PreparedButtons";
 
 const Message = () => (
         <Typography variant="body1">
@@ -76,9 +76,7 @@ const Home: NextPage = () => {
                     </Grid>
 
                 </Grid>
-                <div className={styles.buttonArea}>
-                    <NextButton href="/messages"/>
-                </div>
+                <DownButtonWithLabel href={"/messages"}>messages</DownButtonWithLabel>
             </Parallax>
         </>
     )

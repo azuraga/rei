@@ -4,6 +4,9 @@ import {easing, Slide} from "@mui/material";
 import Label from "../Label/Label";
 import React, {PropsWithChildren} from "react";
 
+/*
+ * Buttons that have been customized according to e.g positions on the screen and size
+ * */
 
 type ButtonWithLabelProps = PropsWithChildren<{
     href: string
@@ -42,5 +45,12 @@ export const PreviousButtonWithLabel = ({href, children}: ButtonWithLabelProps) 
                 <Label>{children}</Label>
             </div>
         </Slide>
+    </div>
+}
+
+export const DownButtonWithLabel = ({href, children}: ButtonWithLabelProps) => {
+    return <div className={styles.downButtonArea}>
+        <Label>{children}</Label>
+        <NextButton href={href}/>
     </div>
 }

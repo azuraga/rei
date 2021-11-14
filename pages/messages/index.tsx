@@ -12,9 +12,6 @@ import {NextButtonWithLabel} from "../../components/Button/PreparedButtons";
 
 const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
-
-
-
 const MessagesPage: NextPage = () => {
     const friends = message_vtuber_json.content.map(jsonToJsx);
     const fans = message_json.content.map(jsonToJsx);
