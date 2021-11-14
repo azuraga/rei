@@ -18,6 +18,9 @@ const ArtPage: NextPage = () => {
             <div className={styles.nextButton}>
                 <NextButton href={"credits"}/>
             </div>
+            <div className={styles.previousButton}>
+                <NextButton href={"messages"}/>
+            </div>
             <Grid container
                   spacing={5}
                   alignItems="center"

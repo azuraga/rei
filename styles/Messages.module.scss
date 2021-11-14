@@ -13,10 +13,21 @@
   z-index: 1;
 }
 
+.previousButton {
+  position: fixed;
+  left: 5vw;
+  top: 50vh;
+  transform: rotate(90deg);
+  z-index: 1;
+}
+
 @media only screen and (max-width: $breakpoint-tablet) {
   .nextButton {
-    top: 90vh;
-    right: 10vh;
-    transform: scale(0.7);
+    transform: rotate(-90deg) scale(0.5);
+    right: 0;
+  }
+  .previousButton {
+    transform: rotate(90deg) scale(0.5);
+    left: 0;
   }
 }
