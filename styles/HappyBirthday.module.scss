@@ -10,14 +10,10 @@
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.commissionAuthor {
+  margin-top: 1em;
+}
 
 .background {
   content: url($background);
-}
-
-.buttonArea {
-  justify-content: center;
-  display: flex;
-  margin-top: 10vh;
-  margin-bottom: 8vh;
 }

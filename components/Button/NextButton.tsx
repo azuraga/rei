@@ -2,6 +2,7 @@ import styles from "./Button.module.scss"
 import {easing, Fab, Slide} from "@mui/material";
 import {useState} from "react";
 import {useRouter} from "next/router";
+import {Box} from "@mui/system";
 
 interface NextButtonProps {
     href: string
@@ -12,8 +13,9 @@ export default function NextButton({href}: NextButtonProps) {
     const router = useRouter();
 
     const goIfClicked = () => {
-        if (clicked)
+        if (clicked) {
             router.push(href);
+        }
     }
 
     return <Slide direction="up"
@@ -22,9 +24,15 @@ export default function NextButton({href}: NextButtonProps) {
                   onExited={goIfClicked}
                   easing={{ enter: easing.easeInOut, exit: easing.easeInOut}}
         >
+        <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+        >
             <Fab className={styles.button}
                  onClick={() => setClicked(true)}>
                 <img className={styles.image} alt="next"/>
             </Fab>
+        </Box>
         </Slide>
 }

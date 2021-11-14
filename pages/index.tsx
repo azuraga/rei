@@ -31,7 +31,7 @@ const Home: NextPage = () => {
             </Head>
 
             <main className={styles.main}>
-                <GiftButton href="/happy-bday"/>
+                <GiftButton href="/happy-anniv"/>
                 <animated.div style={animate}>
                     <Typography variant="h5" className={styles.text}>
                         Let's open!
