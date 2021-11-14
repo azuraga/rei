@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import React from "react";
-import {easing, Grid, Slide} from "@mui/material";
+import {, easing, Grid, Slide} from "@mui/material";
 import Footer from "../../components/MainElements/Footer";
 import art_json from './art.json'
 import { JSONArt } from '../../components/ImageCard/art';
@@ -8,6 +8,7 @@ import ImageCard from "../../components/ImageCard/ImageCard";
 import MessageBoard from "../../components/MessageCard/MessageBoard";
 import styles from "/styles/Messages.module.scss"
 import {NextButtonWithLabel, PreviousButtonWithLabel} from "../../components/Button/PreparedButtons";
+import Navigation from "../../components/MainElements/Navigation";
 
 const jsonToJsx = (message: JSONArt) => <ImageCard artist={message.artist} image={message.image}/>;
 
@@ -42,7 +43,7 @@ const ArtPage: NextPage = () => {
                 </Grid>
             </Slide>
 
-
+            <Navigation/>
             <Footer/>
         </>
     )

@@ -5,10 +5,11 @@ import message_json from './rei_messages.json';
 import message_vtuber_json from './rei_messages_vtuber.json'
 import {JSONMessage} from "../../components/MessageCard/message";
 import MessageBoard from "../../components/MessageCard/MessageBoard";
-import { Grid, Slide} from "@mui/material";
+import {Grid, Slide} from "@mui/material";
 import Footer from "../../components/MainElements/Footer";
 import styles from "/styles/Messages.module.scss"
 import {NextButtonWithLabel} from "../../components/Button/PreparedButtons";
+import Navigation from "../../components/MainElements/Navigation";
 
 const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
@@ -37,6 +38,7 @@ const MessagesPage: NextPage = () => {
                     </Grid>
                 </Grid>
 
+            <Navigation/>
             <Footer/>
         </>
     )

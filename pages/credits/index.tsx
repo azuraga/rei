@@ -12,12 +12,16 @@ import {
 } from "@mui/material";
 import styles from "../../styles/Credits.module.scss";
 import React, {PropsWithChildren} from 'react';
-import {DownButtonWithLabel} from "../../components/Button/PreparedButtons";
+import {
+    NextButtonWithLabel,
+    PreviousButtonWithLabel
+} from "../../components/Button/PreparedButtons";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Masonry from "@mui/lab/Masonry";
 import {Box} from "@mui/system";
 import useWindowDimensions from "../../util/WindowDimensions";
+import Navigation from "../../components/MainElements/Navigation";
 
 const cardStyle = {
     display: 'flex',
@@ -74,18 +78,7 @@ const creditList = [
         </Tooltip>
     </CreditCard>,
     <CreditCard avatar="staff/redmap.png" name="RedMap" title="Developer"/>,
-    <Card sx={cardStyle} key={3}>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Developer
-                </Typography>
-                <Typography color="text.primary">
-                    short643
-                </Typography>
-            </CardContent>
-            <CardActions>
-            </CardActions>
-        </Card>,
+    <CreditCard avatar="staff/short813.png" name="short813" title="Developer"/>,
     <CreditCard avatar="staff/coppersketches.jpg" name="Ninami15" title="Commissioned Artist">
         <Tooltip title="@coppersketches">
             <Button href="https://twitter.com/coppersketches" startIcon={<TwitterIcon/>}/>
@@ -104,33 +97,36 @@ const credits: NextPage = () => {
         columnCount = 1;
     }
 
-    return (
-        <Box
-             sx={{
-                 gap: 5,
-                 display: 'flex',
-                 justifyContent: 'center',
-                 alignItems:"center",
-                 flexDirection: 'column',
-             }}
-        >
-            <Fade in={true} timeout={3000}>
-                <div>
-                    <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
-                </div>
-            </Fade>
+    return ( <>
+            <Box
+                sx={{
+                    gap: 5,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems:"center",
+                    flexDirection: 'column',
+                }}
+            >
+                <Fade in={true} timeout={3000}>
+                    <div>
+                        <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
+                    </div>
+                </Fade>
 
-            <h1 className={styles.header}>Credits</h1>
+                <h1 className={styles.header}>Credits</h1>
 
-            <Container maxWidth="md">
-                <Masonry columns={columnCount} spacing={3}>
-                    {creditList.map((element, index) => <div key={index}>{element}</div>)}
-                </Masonry>
-            </Container>
+                <Container maxWidth="md">
+                    <Masonry columns={columnCount} spacing={3}>
+                        {creditList.map((element, index) => <div key={index}>{element}</div>)}
+                    </Masonry>
+                </Container>
+            </Box>
 
+            <NextButtonWithLabel href={"/"}>start</NextButtonWithLabel>
+            <PreviousButtonWithLabel href={"/fanart"}>fanart</PreviousButtonWithLabel>
+            <Navigation/>
+        </>
 
-            <DownButtonWithLabel href={"/messages"}>back to messages</DownButtonWithLabel>
-        </Box>
     )
 
 }
