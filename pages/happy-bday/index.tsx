@@ -2,14 +2,11 @@ import type { NextPage } from 'next'
 import {Container, Fade, Grid, Typography} from "@mui/material";
 import styles from "../../styles/HappyBirthday.module.scss";
 import NextButton from "../../components/Button/NextButton";
-import {useEffect, useState} from "react";
 import React from 'react';
 import {Background, Parallax} from "react-parallax";
 
 const Message = () => (
-        <Typography variant="body1" align="center">
-            3周年おめでとうございます。
-            <br/><br/>
+        <Typography variant="body1">
             これほど長い期間にわたって活動しているVTuberはそうそういないでしょうね。あなたの最初の中途半端な動画から、今の本気と情熱を込めている配信まで見ることができて光栄でした。この素敵な日を迎えられたのはあなたの献身と努力の賜物です。
             <br/><br/>
             この数年間、あなたは視聴者さんに数え切れないほどの笑顔を下さっていました。困っている人がいても、ただ面白い場所が欲しい人がいても、あなたはいつも誰でもを迎え入れ、みんなのために温かい居場所を作ろうと努力しました。
@@ -32,46 +29,24 @@ const Message = () => (
         </Typography>
 );
 
-
-function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-        width,
-        height
-    };
-}
-
-export function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return windowDimensions;
-}
-
 const Home: NextPage = () => {
     return (
             <Parallax strength={400}>
                 <Background className={styles.background}/>
                 <Grid container
-                      spacing={5}
-                      direction="column"
-                      alignItems="center"
+                      alignItems="flex-start"
                       justifyContent="center"
-                      marginTop="2vh"
+                      marginTop="5vh"
+                      spacing={5}
                 >
+                    <Grid item xs={12}>
+                        <Typography variant="h3" align="center">
+                            <b>3周年おめでとうございます。</b>
+                        </Typography>
+                    </Grid>
                     <Grid item>
                         <Fade in={true} timeout={3000}>
-                            <div>
-                                <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
-                            </div>
+                            <img className={styles.commission} src="/commission.png" alt="commission"/>
                         </Fade>
                     </Grid>
 
@@ -83,16 +58,11 @@ const Home: NextPage = () => {
                         </Fade>
                     </Grid>
 
-                    <Grid item>
-                        <div className={styles.buttonArea}>
-                            <NextButton href="/messages"/>
-                        </div>
-                    </Grid>
-
                 </Grid>
-
+                <div className={styles.buttonArea}>
+                    <NextButton href="/messages"/>
+                </div>
             </Parallax>
-
     )
 
 }
