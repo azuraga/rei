@@ -28,7 +28,7 @@ export default function ImageCard({artist,image}: ImageCardProps) {
         open={open}
         onClick={handleClose}
       >
-       <img alt = "test" src={image} height="auto" width="50%"/>
+       <img alt = "test" src={image} height="50%" width="auto"/>
 
        </Backdrop>
      </div>
