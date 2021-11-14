@@ -1,6 +1,6 @@
 import React from "react";
 import Masonry from '@mui/lab/Masonry';
-import styles from "./ImageCard.module.scss"
+import styles from "../MessageCard/MessageCard.module.scss"
 import {config, useTransition, animated} from "react-spring";
 
 export interface MessageBoardProps {

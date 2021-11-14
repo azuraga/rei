@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import {getRandomCardColour} from "./colours";
 import {ImageCardBase} from "./ImageCardBase";
 import Backdrop from '@mui/material/Backdrop';
 import Button from '@mui/material/Button';
-import CircularProgress from '@mui/material/CircularProgress';
+import {getRandomCardColour} from "../MessageCard/colours";
+import styles from "./ImageCard.module.scss";
+
 export interface ImageCardProps {
     artist: string,
     image: string
@@ -22,13 +23,15 @@ export default function ImageCard({artist,image}: ImageCardProps) {
     }
     return(
     <div>
-        <Button onClick={handleToggle}><ImageCardBase artist={artist} image={image} color={color}/></Button>
+        <Button onClick={handleToggle}>
+            <ImageCardBase artist={artist} image={image} color={color}/>
+        </Button>
         <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 10 }}
         open={open}
         onClick={handleClose}
       >
-       <img alt = "test" src={image} />
+            <img alt={artist} src={image} className={styles.fullImg}/>
        </Backdrop>
      </div>
     );
