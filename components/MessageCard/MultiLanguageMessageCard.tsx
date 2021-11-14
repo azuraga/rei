@@ -5,7 +5,7 @@ import {MessageCardBase, MessageCardProps} from "./MessageCard";
 
 
 export default function MultiLanguageMessageCard({rawMessage}: MessageCardProps) {
-    const [showEN, setShowEN] = useState(true);
+    const [showEN, setShowEN] = useState(false);
     const [colour, setColour] = useState(getRandomCardColour());
     const {author, message, vtuber} = rawMessage;
     return (
