@@ -1,0 +1,19 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+.logo {
+  margin-top: 5vh;
+  width: 15rem;
+  height: auto;
+}
+
+.staffImage {
+
+  mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))
+}
+
+.header {
+  font-family: Jua;
+  font-style: normal;
+  font-weight: normal;
+}

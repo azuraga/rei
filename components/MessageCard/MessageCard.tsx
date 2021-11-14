@@ -1,22 +1,44 @@
 import styles from "./MessageCard.module.scss"
 import {Card, CardContent, Typography} from "@mui/material";
-import {getRandomCardColour} from "./colours";
 import React from "react";
+import SingleLanguageMessageCard from "./SingleLanguageMessageCard";
+import MultiLanguageMessageCard from "./MultiLanguageMessageCard";
+import VerifiedIcon from '@mui/icons-material/Verified';
+import {JSONMessage} from "./message";
 
-export interface MessageProps {
+export interface MessageBaseProps {
     author: string,
-    content: string
+    message: string,
+    color: string
+    vtuber: boolean
 }
 
-export default function MessageCard({author, content}: MessageProps) {
-    return <Card className={styles.card} sx={{background: getRandomCardColour()}}>
-            <CardContent>
-                <Typography className={styles.content}>
-                    {content}
-                </Typography>
-                <Typography className={styles.author}>
-                    {author}
-                </Typography>
-            </CardContent>
-        </Card>;
+export interface MessageCardProps {
+    rawMessage: JSONMessage
+}
+
+export default function MessageCard({rawMessage}: MessageCardProps) {
+    // according to form, at least one language is provided
+    const {author, message, vtuber} = rawMessage;
+    if (message.JA == "")
+        return <SingleLanguageMessageCard message={message.EN} meta={{author, message, vtuber}}/>
+    else if (message.EN == "")
+        return <SingleLanguageMessageCard message={message.JA} meta={{author, message, vtuber}}/>
+
+    return <MultiLanguageMessageCard rawMessage={rawMessage}/>
+}
+
+export function MessageCardBase({author, message, color, vtuber}: MessageBaseProps) {
+    return <Card className={styles.card}
+                 sx={{background: color}}>
+        <CardContent>
+            <Typography className={styles.content}>
+                {message}
+            </Typography>
+            <Typography className={styles.author}>
+                {author}
+                {vtuber && <VerifiedIcon fontSize="inherit"/>}
+            </Typography>
+        </CardContent>
+    </Card>
 }

@@ -1,4 +1,5 @@
 @import 'styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 $big: 11em;
 $normal: 10em;
@@ -46,4 +47,92 @@ $hover-filter: invert(100%);
     }
   }
 
+}
+
+.buttonTextBox {
+  font-family: Jua;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: -0.017em;
+  color: $pink;
+  text-transform: lowercase;
+  padding: 0.5em;
+  background: $dark;
+  // border: 0.2em solid $red;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+}
+
+
+
+%button {
+  position:relative;
+}
+%label {
+  position:relative;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  top:8vh;
+}
+
+%buttonArea {
+  position: fixed;
+  z-index: 1;
+  top: 50vh;
+}
+
+.nextButtonArea {
+  @extend %buttonArea;
+  right: 5vw;
+}
+
+.nextButton {
+  @extend %button;
+  transform: rotate(-90deg);
+}
+.nextLabel {
+  @extend %label;
+}
+
+.previousButtonArea {
+  @extend %buttonArea;
+  left: 5vw;
+}
+.previousButton {
+  @extend %button;
+  transform: rotate(90deg);
+}
+.previousLabel {
+  @extend %label;
+}
+
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .nextButton {
+    transform: rotate(-90deg);
+  }
+  .nextButtonArea {
+    transform: scale(0.5);
+    right: 0
+  }
+
+  .previousButtonArea {
+    transform: scale(0.5);
+    left: 0
+  }
+  .previousButton {
+    transform: rotate(90deg);
+    left: 0;
+  }
+}
+
+.downButtonArea {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  gap: 0.3em;
+  margin-top: 3vh;
+  margin-bottom: 8vh;
 }
