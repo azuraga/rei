@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         <div className={styles.container}>
             <Head>
                 <title>Tadano Rei Anniversary Project</title>
-                <meta name="description" content="Happy birthday!" />
+                <meta name="description" content="Happy Anniversary!" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
