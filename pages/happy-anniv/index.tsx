@@ -106,7 +106,7 @@ const Home: NextPage = () => {
                                     href="https://www.twitter.com/coppersketches"
                                     clickable
                                     avatar={<Avatar alt="Ninami15" src="staff/coppersketches.jpg"/>}
-                                    className={styles.commissionAuthor}
+                                    sx={{marginTop: '1em'}}
                                 />
                             </Box>
                         </Fade>

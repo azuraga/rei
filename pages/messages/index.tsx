@@ -36,8 +36,8 @@ const MessagesPage: NextPage = () => {
                 </Grid>
                 <Grid item>
                     <Box display="flex" flexDirection="column" gap={1}>
-                        <Chip icon={<TranslateIcon />}  label="（存在あれば）翻訳を見るようにメッセージを押してください" className={styles.chipText}/>
-                        <Chip label="Click on the message to view its translation (if available)" className={styles.chipText}/>
+                        <Chip icon={<TranslateIcon />}  label="（存在あれば）翻訳を見るようにメッセージを押してください" sx={{fontFamily: 'Jua'}}/>
+                        <Chip label="Click on the message to view its translation (if available)" sx={{fontFamily: 'Jua'}}/>
                     </Box>
                 </Grid>
                     <Grid item>
