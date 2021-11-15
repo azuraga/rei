@@ -14,6 +14,7 @@ import {Background, Parallax} from "react-parallax";
 import {DownButtonWithLabel} from "../../components/Button/PreparedButtons";
 import ReactCardFlip from "react-card-flip";
 import TranslateIcon from '@mui/icons-material/Translate';
+import CommCard from "../../components/ImageCard/CommissionCard";
 
 const JapaneseMessage = () => (
         <Typography variant="body1">
@@ -99,7 +100,7 @@ const Home: NextPage = () => {
                                 flexDirection="column"
                                 alignItems="center"
                             >
-                                <img className={styles.commission} src="/commission.png" alt="commission"/>
+                                <CommCard image="/commission.png"/>
                                 <Chip
                                     label="by @Ninami15"
                                     component="a"
