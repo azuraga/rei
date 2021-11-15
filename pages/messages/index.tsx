@@ -1,16 +1,16 @@
 import type { NextPage } from 'next'
-import MessageCard from "../../components/MessageCard/MessageCard";
 import React from "react";
-import message_json from './rei_messages.json';
-import message_vtuber_json from './rei_messages_vtuber.json'
-import {JSONMessage} from "../../components/MessageCard/message";
+import styles from "/styles/Messages.module.scss"
 import MessageBoard from "../../components/MessageCard/MessageBoard";
+import MessageCard from "../../components/MessageCard/MessageCard";
+import {JSONMessage} from "../../components/MessageCard/message";
 import {Box, Chip, Grid, Slide} from "@mui/material";
 import Footer from "../../components/MainElements/Footer";
-import styles from "/styles/Messages.module.scss"
 import {NextButtonWithLabel} from "../../components/Button/PreparedButtons";
 import Navigation from "../../components/MainElements/Navigation";
 import TranslateIcon from "@mui/icons-material/Translate";
+import message_vtuber_json from './rei_messages_vtuber.json'
+import message_json from './rei_messages.json';
 
 const jsonToJsx = (message: JSONMessage) => <MessageCard rawMessage={message}/>;
 
@@ -36,8 +36,8 @@ const MessagesPage: NextPage = () => {
                 </Grid>
                 <Grid item>
                     <Box display="flex" flexDirection="column" gap={1}>
-                        <Chip icon={<TranslateIcon />}  label="（存在あれば）翻訳を見るようにメッセージを押してください" className={styles.chipText}/>
-                        <Chip label="Click on the message to view its translation (if available)" className={styles.chipText}/>
+                        <Chip icon={<TranslateIcon />}  label="（存在あれば）翻訳を見るようにメッセージを押してください" sx={{fontFamily: 'Jua'}}/>
+                        <Chip label="Click on the message to view its translation (if available)" sx={{fontFamily: 'Jua'}}/>
                     </Box>
                 </Grid>
                     <Grid item>

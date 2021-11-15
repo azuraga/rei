@@ -1,10 +1,11 @@
-import styles from "./MessageCard.module.scss"
-import {Card, CardContent, Typography} from "@mui/material";
 import React from "react";
-import SingleLanguageMessageCard from "./SingleLanguageMessageCard";
-import MultiLanguageMessageCard from "./MultiLanguageMessageCard";
+import styles from "./MessageCard.module.scss"
+
+import {Card, CardContent, Typography} from "@mui/material";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import {JSONMessage} from "./message";
+import SingleLanguageMessageCard from "./SingleLanguageMessageCard";
+import MultiLanguageMessageCard from "./MultiLanguageMessageCard";
 
 export interface MessageBaseProps {
     author: string,
@@ -29,13 +30,33 @@ export default function MessageCard({rawMessage}: MessageCardProps) {
 }
 
 export function MessageCardBase({author, message, color, vtuber}: MessageBaseProps) {
-    return <Card className={styles.card}
-                 sx={{background: color}}>
+    return <Card
+                 sx={{
+                     background: color,
+                     borderRadius: '31px',
+                     maxWidth: '425px',
+                 }}
+    >
         <CardContent>
-            <Typography className={styles.content}>
+            <Typography sx={{
+                fontFamily: 'Jua',
+                lineHeight: '30px',
+                textAlign: 'center',
+                letterSpacing: '-0.017em',
+                color: "#fff",
+                margin: '1em'
+            }}>
                 {message}
             </Typography>
-            <Typography className={styles.author}>
+            <Typography sx={{
+                maxWidth: 425 / 2,
+                fontFamily: 'Jua',
+                fontSize: '0.9em',
+                lineHeight: '30px',
+                color: '#fff',
+                textAlign: 'right',
+                margin: '1em 2.5em 0 auto'
+            }}>
                 {author}
                 {vtuber && <VerifiedIcon fontSize="inherit"/>}
             </Typography>

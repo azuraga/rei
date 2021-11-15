@@ -21,11 +21,10 @@ const Home: NextPage = () => {
         },
         delay: 1000,
     })
-
     return (
         <div className={styles.container}>
             <Head>
-                <title>Tadano Rei Birthday Project</title>
+                <title>Tadano Rei Anniversary Project</title>
                 <meta name="description" content="Happy birthday!" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -33,9 +32,9 @@ const Home: NextPage = () => {
             <main className={styles.main}>
                 <GiftButton href="/happy-anniv"/>
                 <animated.div style={animate}>
-                    <Typography variant="h5" className={styles.text}>
-                        Let's open!
-                    </Typography>
+                    <h1 className={styles.text}>
+                        Let&apos;s open!
+                    </h1>
                 </animated.div>
 
             </main>

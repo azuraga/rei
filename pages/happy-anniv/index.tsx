@@ -43,13 +43,13 @@ const EnglishMessage = () => (
     <Typography variant="body1">
         Congratulations on your 3rd year anniversary.
         <br/><br/>
-        There aren't many VTubers who have had a career spanning across such a long time. It was an honor to have seen your progress, from the very first half-hearted video to what is now your full time passion. Your dedication and hard work alone are what made this wonderful moment possible.
+        There aren&apos;t many VTubers who have had a career spanning across such a long time. It was an honor to have seen your progress, from the very first half-hearted video to what is now your full time passion. Your dedication and hard work alone are what made this wonderful moment possible.
         <br/><br/>
         Over these years you have brought countless smiles to those who have watched you. Whether someone was having a rough time or they just wanted a place to hang out, you always welcomed people with open arms and worked hard to create a warm home for everyone.
         <br/><br/>
         Not every day was easy. There were many hardships, obstacles, and delays that seemed endless. But you still hung in there strong and did everything in your power to persevere and make everyone happy to the best of your abilities.
         <br/><br/>
-        It would be an impossible feat to convey how grateful we are for your existence and everything you do. However we still tried our best to cram our feelings into this present. Just like you opened yourself up to us this year, we hope this present will represent our honest feelings for you and that you'll read them and take them to heart, because we all care deeply about you.
+        It would be an impossible feat to convey how grateful we are for your existence and everything you do. However we still tried our best to cram our feelings into this present. Just like you opened yourself up to us this year, we hope this present will represent our honest feelings for you and that you&apos;ll read them and take them to heart, because we all care deeply about you.
         <br/><br/>
         Thank you for always giving it your all.
         Thank you for always being yourself.
@@ -57,7 +57,7 @@ const EnglishMessage = () => (
         Thank you for all the smiles and energy.
         Thank you for being the best VTuber ever.
         <br/><br/>
-        Being Reiyans is the greatest honor we could ever have. We hope you'll let us stay by your side from now on as well and allow us to make your dreams come true.
+        Being Reiyans is the greatest honor we could ever have. We hope you&apos;ll let us stay by your side from now on as well and allow us to make your dreams come true.
         <br/><br/>
         - All the Reiyans
     </Typography>
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
                                     href="https://www.twitter.com/coppersketches"
                                     clickable
                                     avatar={<Avatar alt="Ninami15" src="staff/coppersketches.jpg"/>}
-                                    className={styles.commissionAuthor}
+                                    sx={{marginTop: '1em'}}
                                 />
                             </Box>
                         </Fade>
