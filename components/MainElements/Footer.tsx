@@ -6,7 +6,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
         >
-            <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
+            <img className={styles.logo} src="/logo.png" alt="Tadano Rei Anniversary Project"/>
 
         </a>
     </footer>

@@ -10,15 +10,28 @@ export interface ArtBaseProps {
 
 export function ImageCardBase({artist,image,color}: ArtBaseProps) {
     const cardRef = React.useRef(null);
-    return <Card className={styles.card}
+    return <Card
                  ref={cardRef}
-                 sx={{background: color}}>            
+                 sx={{
+                     background: color,
+                     borderRadius: '31px',
+                     maxWidth: '425px'
+                 }}
+    >
         <CardMedia
             component= "img"
             image={image}
          />  
         <CardContent>
-            <Typography className={styles.author}>
+            <Typography sx={{
+                maxWidth: 425 / 2,
+                fontFamily: 'Jua',
+                fontSize: '0.9em',
+                lineHeight: '30px',
+                color: '#fff',
+                textAlign: 'right',
+                margin: '1em 2.5em 0 auto'
+            }}>
                 {artist}
             </Typography>
         </CardContent>

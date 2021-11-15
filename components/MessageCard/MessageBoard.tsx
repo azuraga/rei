@@ -1,6 +1,6 @@
 import React from "react";
-import Masonry from '@mui/lab/Masonry';
 import styles from "./MessageCard.module.scss"
+import Masonry from '@mui/lab/Masonry';
 import {config, useTransition, animated} from "react-spring";
 import useWindowDimensions from "../../util/WindowDimensions";
 
@@ -18,15 +18,22 @@ export default function MessageBoard({messages}: MessageBoardProps) {
     })
 
     let columnCount;
+    let boardWidth;
     const dims = useWindowDimensions();
     if (dims === undefined) {
         columnCount = 1;
     } else {
         const {height, width} = dims;
         columnCount = width < 860 ? 1 : 3;
+        boardWidth = width < 860 ? '100vw' : '75vw';
     }
 
-    return <Masonry columns={columnCount} spacing={3} className={styles.board}>
+    return <Masonry columns={columnCount} spacing={3}
+                    sx={{
+                        maxWidth: '1300px',
+                        width: boardWidth
+                    }}
+    >
         {
             transitions((style, element) => {
                 return <animated.div style={style}>

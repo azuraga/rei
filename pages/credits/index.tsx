@@ -109,7 +109,7 @@ const Credits: NextPage = () => {
             >
                 <Fade in={true} timeout={3000}>
                     <div>
-                        <img className={styles.logo} src="/logo.png" alt="Tadano Rei Birthday Project"/>
+                        <img className={styles.logo} src="/logo.png" alt="Tadano Rei Anniversary Project"/>
                     </div>
                 </Fade>
 
